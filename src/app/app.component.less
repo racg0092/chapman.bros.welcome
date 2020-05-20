@@ -1,0 +1,50 @@
+
+.nav-bar {
+    -webkit-app-region: drag;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: .5em;
+    z-index: 100;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    ::ng-deep button.mat-icon-button {
+        margin-right: 1em;
+        -webkit-app-region: no-drag;
+        z-index: 101;
+    }
+}
+.flex-row {
+    width: 100%;
+    height: 100vh;
+    div.login {
+        width: 30%;
+        div.bottom-info {
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            flex-flow: nowrap row;
+            div {
+                padding: 1em;
+            }
+            p {
+                font-weight: bold;
+                color: rgba(0, 0, 0, .3);
+                padding: 0;
+                margin: 0;
+                font-size: 15px;
+            }
+            div.help {
+                p:hover {
+                    color: black;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    div.banner {
+        background-image: url(../assets/robots.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+}

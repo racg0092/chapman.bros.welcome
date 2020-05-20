@@ -1,4 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+    min-height: 100vh;
+}
+body { 
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    padding: 0;
+}
+
+[class*=flex] {
+    display: flex;
+}
+
+.flex-row {
+    flex-flow: nowrap row;
+}
+.flex-column {
+    flex-flow: nowrap column;
+}
+.flex-center {
+    flex-flow: nowrap column;
+    justify-content: center;
+    align-items: center;
+}
+.item-big {
+    flex-grow: 8;
+}

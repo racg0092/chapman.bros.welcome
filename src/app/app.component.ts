@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { ElectronService } from 'ngx-electron';
+import { 
+  faSignInAlt,
+  faMinus,
+  faTimes ,
+  faQuestion
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +14,22 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
 
-  faCoffee = faCoffee;
-  title = 'clienside-ag8';
+  faSignInAlt = faSignInAlt;
+  faMinus = faMinus;
+  faTimes = faTimes;
+  faQuestion = faQuestion;
+  constructor(
+    private eService: ElectronService
+  ) {}
+  minimize(): void {
+    if(this.eService.isElectronApp) {
+      this.eService.ipcRenderer.send('minimize-welcome-window');
+    }
+  }
+
+  close(): void {
+    if(this.eService.isElectronApp) {
+      this.eService.ipcRenderer.send('close-welcome-window');
+    }
+  }
 }

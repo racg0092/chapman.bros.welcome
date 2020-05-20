@@ -1,3 +1,37 @@
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-
-<fa-icon [icon]="faCoffee"></fa-icon>
+<div class="nav-bar">
+    <button mat-icon-button (click)="close()">
+        <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+    <button mat-icon-button>
+        <fa-icon [icon]="faQuestion"></fa-icon>
+    </button>
+    <button mat-icon-button (click)="minimize()">
+        <fa-icon [icon]="faMinus"></fa-icon>
+    </button>
+</div>
+<div class="flex-row">
+    <div class="login flex-center">
+        <div>
+            <h3>Sign in with your Quest Account</h3>
+        </div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="USERNAME"/>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" matInput placeholder="PASSWORD"/>
+        </mat-form-field>
+        <div class="flex-center" style="padding:2em;">
+            <fa-icon [icon]="faSignInAlt" size="4x" style="color:rgba(0, 0 , 0, .3)"></fa-icon>
+        </div>
+        <div class="bottom-info">
+            <div class="flex-column help">
+                <p>CREATE ACCOUNT</p>
+                <p>CAN'T SIGN IN?</p>
+            </div>
+            <div>
+                <p>V1.0.0</p>
+            </div>
+        </div>
+    </div>
+    <div class="banner item-big"></div>
+</div>

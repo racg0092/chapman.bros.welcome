@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxElectronModule, ElectronService } from 'ngx-electron';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxElectronModule
   ],
   providers: [],
   bootstrap: [AppComponent]
