@@ -15,17 +15,20 @@
             <h3>Sign in with your Quest Account</h3>
         </div>
         <mat-form-field>
-            <input type="text" matInput placeholder="USERNAME"/>
+            <input type="text" matInput placeholder="USERNAME" [(ngModel)]="username"/>
         </mat-form-field>
         <mat-form-field>
-            <input type="password" matInput placeholder="PASSWORD"/>
+            <input type="password" matInput placeholder="PASSWORD" [(ngModel)]="password"/>
         </mat-form-field>
-        <div class="flex-center" style="padding:2em;">
-            <fa-icon [icon]="faSignInAlt" size="4x" style="color:rgba(0, 0 , 0, .3)"></fa-icon>
+        <mat-checkbox [(ngModel)]="staySignedIn"> Stay sign in?</mat-checkbox>
+        <div class="flex-center" style="padding:2em;"  (click)="signIn()">
+            <fa-icon [icon]="faSignInAlt" size="4x" [class.clickable]="username && password"
+            [style.color]="username && password ? '#f54242' : 'rgba(0, 0 , 0, .3)'"
+            [style.cursor]="username && password ? 'pointer': 'initial'"></fa-icon>
         </div>
         <div class="bottom-info">
             <div class="flex-column help">
-                <p>CREATE ACCOUNT</p>
+                <p (click)="signUp()">CREATE ACCOUNT</p>
                 <p>CAN'T SIGN IN?</p>
             </div>
             <div>
@@ -35,3 +38,4 @@
     </div>
     <div class="banner item-big"></div>
 </div>
+<quest-sing-up *ngIf="showSignUp" (closeEvent)="signUp()"></quest-sing-up>

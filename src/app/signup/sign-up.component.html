@@ -1,0 +1,31 @@
+<div class="flex-row sign-up">
+    <div class="contract flex-row">
+        <button mat-icon-button>
+            <fa-icon [icon]="faFileContract" size="lg" ></fa-icon>
+        </button>
+        <sup>Privacy policy & Term of service</sup>
+    </div>
+    <div class="item-big form flex-center">
+        <h4>New to QUEST games, easy sign up.</h4> 
+        <mat-form-field>
+            <input type="text" matInput placeholder="FIRST NAME" required [(ngModel)]="profile.firstname"/>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="LAST NAME" required [(ngModel)]="profile.lastname"/>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="USERNAME" required [(ngModel)]="profile.username"/>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" matInput placeholder="PASSWORD" required [(ngModel)]="profile.password"/>
+        </mat-form-field>
+        <mat-checkbox [(ngModel)]="legalAge">I'm 13 years or older.</mat-checkbox>
+        <mat-checkbox [(ngModel)]="privacyPolicy">I agree to the Privacy policy & Term of service</mat-checkbox>
+        <div style="padding: 2em;">
+            <button mat-raised-button (click)="signUp()">SIGN UP</button>
+        </div>
+    </div>
+    <div class="close-sign-up flex-center" (click)="close()">
+        <fa-icon [icon]="faTimesCircle" size="4x" inverse="true"></fa-icon>
+    </div>
+</div>
