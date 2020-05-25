@@ -1,4 +1,5 @@
 export class Profile {
+    _id: any;
     firstname: string;
     lastname: string;
     email: {
@@ -12,4 +13,5 @@ export class Profile {
     username: string;
     password: string;
     gamertag: string;
+    salt: string;
 }

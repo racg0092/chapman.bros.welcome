@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
 import { 
   faSignInAlt,
@@ -21,9 +21,12 @@ export class AppComponent {
   showSignUp = false;
   username: string;
   password: string;
-  staySignedIn: boolean
+  staySignedIn: boolean;
+  loginResult: string;
+  loading = false;
   constructor(
-    private eService: ElectronService
+    private eService: ElectronService,
+    private ngZone: NgZone 
   ) {}
 
   minimize(): void {
@@ -40,9 +43,21 @@ export class AppComponent {
 
   signIn(): void {
     if (this.username !== undefined && this.username !== '' && this.password !== undefined && this.password !== '') {
+      this.loading = true;
       if(this.eService.isElectronApp) {
         this.eService.ipcRenderer.send('sign-in',{username:this.username, password:this.password, staySignedIn:this.staySignedIn});
+        this.eService.ipcRenderer.on('login-result', (event, message) => {
+          this.ngZone.run(_=> {
+            this.loginResult = message;
+            this.loading = false;
+          })
+        })
       }
+    }
+  }
+  submit(event): void {
+    if (event.keyCode === 13) {
+      this.signIn();
     }
   }
 
