@@ -17,6 +17,7 @@ export class SignUpComponent {
     profile: Profile = new Profile();
     legalAge = false;
     privacyPolicy = false;
+    loading = false;
     @Output() closeEvent = new EventEmitter<boolean>();
 
     faTimesCircle = faTimesCircle;
@@ -30,9 +31,11 @@ export class SignUpComponent {
         if(this.legalAge) {
             if(this.privacyPolicy) {
                 if(this.validations()) {
-                    console.log(this.profile);
+                    this.snackbar.dismiss();
+                    this.loading = true;
                     if(this.eService.isElectronApp) {
                         this.eService.ipcRenderer.send('sign-up', this.profile);
+                        this.loading = false;
                     }
                 }
             } else {

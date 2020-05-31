@@ -1,11 +1,14 @@
 <div class="flex-row sign-up">
-    <div class="contract flex-row">
+    <div class="flex-center item-big" style="background-color: white;" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="contract flex-row" *ngIf="!loading">
         <button mat-icon-button>
             <fa-icon [icon]="faFileContract" size="lg" ></fa-icon>
         </button>
         <sup>Privacy policy & Term of service</sup>
     </div>
-    <div class="item-big form flex-center">
+    <div class="item-big form flex-center" *ngIf="!loading">
         <h4>New to QUEST games, easy sign up.</h4> 
         <mat-form-field>
             <input type="text" matInput placeholder="FIRST NAME" required [(ngModel)]="profile.firstname"/>
@@ -25,7 +28,7 @@
             <button mat-raised-button (click)="signUp()">SIGN UP</button>
         </div>
     </div>
-    <div class="close-sign-up flex-center" (click)="close()">
+    <div class="close-sign-up flex-center" (click)="close()" *ngIf="!loading">
         <fa-icon [icon]="faTimesCircle" size="4x" inverse="true"></fa-icon>
     </div>
 </div>
